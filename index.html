@@ -1,5 +1,17 @@
+<nav class="navbar">
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
 <body>
-    <section class="hero">
+    <section id="hero" class="hero">
         <h1>Hi, I'm Vihangi Liyanage</h1>
         <h2>Software Developer | Android App Developer | UI/UX Enthusiast</h2>
         <p>
@@ -8,7 +20,7 @@
         </p>
     </section>
 
-    <section class="about">
+    <section id="about" class="about">
     <h2>About Me</h2>
     <p>
         I am an undergraduate student with a strong interest in software development,
@@ -22,7 +34,7 @@
         where I can learn, contribute, and grow as a technology professional.
     </p>
 </section>
-<section class="skills">
+<section id="skills" class="skills">
     <h2>Skills</h2>
 
     <div class="skills-container">
@@ -48,7 +60,7 @@
         </div>
     </div>
 </section>
-<section class="projects">
+<section id="projects" class="projects">
     <h2>Projects</h2>
 
     <div class="project-card">
@@ -78,7 +90,7 @@
         <a href="#" target="_blank">View Case Study</a>
     </div>
 </section>
-<section class="research">
+<section id="research" class="research">
     <h2>Research & Academic Work</h2>
     <p>
         I have completed academic coursework and research-oriented projects
@@ -90,12 +102,12 @@
         and academic collaborations related to technology and innovation.
     </p>
 </section>
-<section class="resume">
+<section id="resume" class="resume">
     <h2>Resume</h2>
     <p>Download my latest resume to see my skills, projects, and experience.</p>
     <a href="Vihangi_Wasana_Resume.pdf" download>Download Resume</a>
 </section>
-<section class="contact">
+<section id="contact" class="contact">
     <h2>Contact Me</h2>
     <p>You can reach out to me for internships, freelance projects, or collaborations.</p>
     <ul>
@@ -104,5 +116,15 @@
         <li>GitHub: <a href="https://github.com/vihangi-wasana" target="_blank">github.com/vihangi-wasana</a></li>
     </ul>
 </section>
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
 
 </body>

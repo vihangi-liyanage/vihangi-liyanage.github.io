@@ -142,3 +142,31 @@ body {
     line-height: 1.8;
     margin-bottom: 20px;
 }
+.resume {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.resume h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.resume p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.resume a {
+    text-decoration: none;
+    background-color: #2563eb;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.resume a:hover {
+    background-color: #1e40af;
+}

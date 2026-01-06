@@ -33,3 +33,21 @@ body {
     font-size: 1.1rem;
     line-height: 1.6;
 }
+.about {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+.about p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: center;
+}

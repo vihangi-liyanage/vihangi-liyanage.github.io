@@ -975,13 +975,197 @@ a {
   transform: translateX(-50%) translateY(0);
 }
 
+/* Enhanced section animations */
+.scroll-reveal-section {
+  animation: sectionReveal 0.8s ease-out forwards;
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Open Positions - Enhanced styling */
+.open-positions-header {
+  margin-bottom: 1rem;
+}
+
+.open-positions h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.position-note {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.position-card {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(2, 8, 23, 0.1);
+  overflow: hidden;
+}
+
+.position-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.position-card:hover {
+  animation: none;
+  box-shadow: 0 16px 32px rgba(6, 182, 212, 0.24);
+}
+
+/* Rotating Approach Cards - Wheel Animation */
+.work-management-section {
+  margin-top: 2.5rem;
+  padding: 2.2rem 1.5rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(6, 182, 212, 0.05));
+  animation: sectionGlow 4s ease-in-out infinite;
+}
+
+@keyframes sectionGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.2);
+  }
+}
+
+.work-management-title {
+  text-align: center;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.65rem;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.work-management-subtitle {
+  text-align: center;
+  color: var(--muted);
+  margin: 0 0 2rem;
+  font-size: 0.95rem;
+}
+
+.carousel-wrapper {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 360px;
+  position: relative;
+}
+
+.approach-carousel {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotateWheel 20s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotateWheel {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.approach-carousel:hover {
+  animation-play-state: paused;
+}
+
+.approach-carousel .approach-card {
+  position: absolute;
+  width: 180px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transform-origin: center;
+  box-shadow: 0 8px 24px rgba(2, 8, 23, 0.3);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.approach-carousel .approach-card:nth-child(1) {
+  transform: translateY(-150px) rotateZ(0deg);
+}
+
+.approach-carousel .approach-card:nth-child(2) {
+  transform: translateX(150px) rotateZ(90deg);
+}
+
+.approach-carousel .approach-card:nth-child(3) {
+  transform: translateY(150px) rotateZ(180deg);
+}
+
+.approach-carousel .approach-card:nth-child(4) {
+  transform: translateX(-150px) rotateZ(270deg);
+}
+
+.approach-carousel .approach-card:hover {
+  transform-origin: center;
+  box-shadow: 0 14px 40px rgba(6, 182, 212, 0.32);
+}
+
+.approach-carousel .approach-card h4 {
+  font-size: 1rem;
+  margin: 0 0 0.4rem;
+  white-space: nowrap;
+}
+
+.approach-carousel .approach-card p {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: 0;
+  color: var(--muted);
+}
+
 @media (max-width: 860px) {
   .hero-grid,
   .about-grid,
   .contact-grid,
   .skills-grid,
   .services-grid,
-  .approach-grid,
   .about-animated-cards {
     grid-template-columns: 1fr;
   }
@@ -990,7 +1174,38 @@ a {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  .carousel-wrapper {
+    min-height: 420px;
+  }
+
+  .approach-carousel {
+    width: 240px;
+    height: 240px;
+  }
+
+  .approach-carousel .approach-card {
+    width: 160px;
+    height: 130px;
+  }
+
+  .approach-carousel .approach-card:nth-child(1) {
+    transform: translateY(-130px) rotateZ(0deg);
+  }
+
+  .approach-carousel .approach-card:nth-child(2) {
+    transform: translateX(130px) rotateZ(90deg);
+  }
+
+  .approach-carousel .approach-card:nth-child(3) {
+    transform: translateY(130px) rotateZ(180deg);
+  }
+
+  .approach-carousel .approach-card:nth-child(4) {
+    transform: translateX(-130px) rotateZ(270deg);
+  }
 }
+
 
 @media (max-width: 700px) {
   .nav-toggle {

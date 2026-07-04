@@ -52,6 +52,40 @@ function initReveal() {
   sections.forEach((section) => observer.observe(section));
 }
 
+function initScrollAnimations() {
+  const scrollSections = document.querySelectorAll('.scroll-reveal-section');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'sectionReveal 0.8s ease-out forwards';
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  scrollSections.forEach((section) => observer.observe(section));
+}
+
+function initWorkManagementAnimation() {
+  const workSection = document.querySelector('.work-management-section');
+  if (!workSection) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  observer.observe(workSection);
+}
+
 function initCounters() {
   const counters = document.querySelectorAll('[data-target]');
   const counterObserver = new IntersectionObserver(
@@ -381,6 +415,8 @@ window.addEventListener('load', () => {
   setTimeout(() => loadingScreen?.classList.add('is-hidden'), 450);
   typeLoop();
   initReveal();
+  initScrollAnimations();
+  initWorkManagementAnimation();
   initCounters();
   initDynamicCounters();
   initNav();

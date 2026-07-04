@@ -199,6 +199,31 @@ function initBackToTop() {
   });
 }
 
+function initMailtoFallback() {
+  const mailLink = document.querySelector('.mailto-link');
+  const toast = document.getElementById('copy-toast');
+
+  if (!mailLink || !toast) return;
+
+  mailLink.addEventListener('click', async (event) => {
+    const email = mailLink.getAttribute('data-email');
+    event.preventDefault();
+
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(email);
+      }
+    } catch (error) {
+      console.warn('Clipboard unavailable', error);
+    }
+
+    toast.textContent = 'Email copied — open your mail app to send it.';
+    toast.classList.add('show');
+    window.setTimeout(() => toast.classList.remove('show'), 2200);
+    window.location.href = `mailto:${email}`;
+  });
+}
+
 function initPortraitAnimation() {
   const portrait = document.getElementById('hero-portrait');
   if (!portrait) return;
@@ -238,5 +263,6 @@ window.addEventListener('load', () => {
   initNav();
   initParticleCanvas();
   initBackToTop();
+  initMailtoFallback();
   initPortraitAnimation();
 });

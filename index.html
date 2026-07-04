@@ -99,45 +99,91 @@
         <div class="container">
           <div class="section-heading reveal">
             <p class="eyebrow">About Me</p>
-            <h2>Crafting thoughtful digital experiences.</h2>
+            <h2 class="about-heading">Solving problems through technology.</h2>
             <p>
-              I’m a computer science student with a passion for building modern web applications, experimenting with AI, and turning ideas into polished products.
+              I’m M.L. Vihangi Wasana, a Computer Science undergraduate passionate about building practical, user-focused software.
             </p>
           </div>
 
           <div class="about-grid">
             <div class="about-card glass-panel reveal">
-              <img src="assets/profile.jpg" alt="Vihangi portrait" />
-              <div class="chip-row">
-                <span class="chip">Creative</span>
-                <span class="chip">Analytical</span>
-                <span class="chip">Team Player</span>
+              <img src="assets/image2.png" alt="Vihangi portrait" />
+              <div class="about-meta">
+                <div>
+                  <span class="meta-label">Location</span>
+                  <strong>Polgasowita, Sri Lanka</strong>
+                </div>
+                <div>
+                  <span class="meta-label">Province</span>
+                  <strong>Western Province</strong>
+                </div>
+                <div>
+                  <span class="meta-label">Status</span>
+                  <strong>Open to opportunities</strong>
+                </div>
+              </div>
+              <div class="availability-card reveal">
+                <div class="availability-pill">Available Now</div>
+                <p>📍 Available for On-site, Hybrid, and Remote opportunities.</p>
               </div>
             </div>
 
             <div class="about-copy glass-panel reveal">
-              <h3>What drives me</h3>
+              <h3>My story</h3>
               <p>
-                I enjoy combining strong design with reliable engineering to create solutions that feel effortless for users and maintainable for teams.
+                I enjoy understanding how people interact with technology, breaking complex problems into manageable pieces, and developing solutions that are simple, reliable, and easy to use.
               </p>
-              <div class="stats-grid">
-                <div class="stat-card">
-                  <strong data-target="5">0</strong>
-                  <span>Projects Built</span>
+              <p>
+                Whether I’m creating a web application, experimenting with AI, or contributing to a collaborative project, I approach each challenge with curiosity, analytical thinking, and a willingness to learn. I believe great software comes from combining clean code, thoughtful design, and continuous improvement.
+              </p>
+              <p>
+                I’m currently seeking internship opportunities where I can contribute, gain industry experience, and continue growing as a technology professional.
+              </p>
+
+              <div class="about-animated-cards">
+                <div class="animated-card">
+                  <span class="card-number" id="projects-count" data-target="5">0</span>
+                  <span class="card-label">Projects Built</span>
                 </div>
-                <div class="stat-card">
-                  <strong data-target="3">0</strong>
-                  <span>Years Learning</span>
+                <div class="animated-card">
+                  <span class="card-number" id="years-count" data-target="3">0</span>
+                  <span class="card-label">Years Learning</span>
                 </div>
-                <div class="stat-card">
-                  <strong data-target="1">0</strong>
-                  <span>Dean’s List</span>
-                </div>
-                <div class="stat-card">
-                  <strong data-target="2">0</strong>
-                  <span>Certifications</span>
+                <div class="animated-card">
+                  <span class="card-number" id="tech-count" data-target="2">0</span>
+                  <span class="card-label">Core Technologies</span>
                 </div>
               </div>
+
+              <div class="open-positions">
+                <h4>I'm Open To</h4>
+                <div class="position-tags">
+                  <button class="position-card" data-skill="frontend">Frontend Development Internships</button>
+                  <button class="position-card" data-skill="backend">Full-Stack Development Internships</button>
+                  <button class="position-card" data-skill="ai">Software Engineering Internships</button>
+                  <button class="position-card" data-skill="tools">Product Management Internships</button>
+                  <button class="position-card" data-skill="tools">Project Management Internships</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="approach-grid">
+            <div class="approach-card glass-panel reveal">
+              <h4>🧩 Understand First</h4>
+              <p>I begin by understanding the problem, user needs, and project goals before jumping into development.</p>
+            </div>
+            <div class="approach-card glass-panel reveal">
+              <h4>💡 Plan Thoughtfully</h4>
+              <p>I break large problems into smaller tasks and design solutions that are maintainable and scalable.</p>
+            </div>
+            <div class="approach-card glass-panel reveal">
+              <h4>⚙️ Build & Improve</h4>
+              <p>I develop clean, user-friendly applications, gather feedback, and refine them continuously.</p>
+            </div>
+            <div class="approach-card glass-panel reveal">
+              <h4>🌱 Keep Learning</h4>
+              <p>Every project helps me grow my skills and explore technologies like AI and modern web development.</p>
             </div>
           </div>
         </div>
@@ -151,35 +197,106 @@
             <p>Front-end, back-end, databases, and AI-focused development are all part of the toolkit.</p>
           </div>
 
+          <div class="skill-filters reveal" role="tablist" aria-label="Skill categories">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="frontend">Frontend</button>
+            <button class="filter-btn" data-filter="backend">Backend</button>
+            <button class="filter-btn" data-filter="database">Database</button>
+            <button class="filter-btn" data-filter="tools">Tools</button>
+            <button class="filter-btn" data-filter="ai">AI</button>
+          </div>
+
           <div class="skills-grid">
-            <div class="skill-card glass-panel reveal">
-              <h3>Frontend</h3>
-              <div class="chip-row">
+            <article class="skill-card glass-panel reveal" data-category="frontend">
+              <div class="skill-card-head">
+                <h3>Frontend</h3>
+                <span>UX-focused builds</span>
+              </div>
+              <div class="skill-chip-row">
                 <span class="chip">React</span>
                 <span class="chip">Next.js</span>
                 <span class="chip">JavaScript</span>
                 <span class="chip">HTML5</span>
                 <span class="chip">CSS3</span>
               </div>
-            </div>
-            <div class="skill-card glass-panel reveal">
-              <h3>Backend</h3>
-              <div class="chip-row">
+              <div class="skill-progress">
+                <div class="skill-progress-row"><span>React</span><div class="bar"><span class="bar-fill" data-progress="92"></span></div></div>
+                <div class="skill-progress-row"><span>Next.js</span><div class="bar"><span class="bar-fill" data-progress="86"></span></div></div>
+                <div class="skill-progress-row"><span>JavaScript</span><div class="bar"><span class="bar-fill" data-progress="90"></span></div></div>
+              </div>
+            </article>
+
+            <article class="skill-card glass-panel reveal" data-category="backend">
+              <div class="skill-card-head">
+                <h3>Backend</h3>
+                <span>Reliable systems</span>
+              </div>
+              <div class="skill-chip-row">
                 <span class="chip">Node.js</span>
                 <span class="chip">Express</span>
                 <span class="chip">Python</span>
                 <span class="chip">PHP</span>
               </div>
-            </div>
-            <div class="skill-card glass-panel reveal">
-              <h3>Database & Tools</h3>
-              <div class="chip-row">
+              <div class="skill-progress">
+                <div class="skill-progress-row"><span>Node.js</span><div class="bar"><span class="bar-fill" data-progress="84"></span></div></div>
+                <div class="skill-progress-row"><span>Python</span><div class="bar"><span class="bar-fill" data-progress="80"></span></div></div>
+                <div class="skill-progress-row"><span>REST APIs</span><div class="bar"><span class="bar-fill" data-progress="88"></span></div></div>
+              </div>
+            </article>
+
+            <article class="skill-card glass-panel reveal" data-category="database">
+              <div class="skill-card-head">
+                <h3>Database</h3>
+                <span>Organized data flows</span>
+              </div>
+              <div class="skill-chip-row">
                 <span class="chip">PostgreSQL</span>
                 <span class="chip">MongoDB</span>
+                <span class="chip">Firebase</span>
+                <span class="chip">Prisma</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-row"><span>PostgreSQL</span><div class="bar"><span class="bar-fill" data-progress="82"></span></div></div>
+                <div class="skill-progress-row"><span>MongoDB</span><div class="bar"><span class="bar-fill" data-progress="78"></span></div></div>
+                <div class="skill-progress-row"><span>Prisma</span><div class="bar"><span class="bar-fill" data-progress="85"></span></div></div>
+              </div>
+            </article>
+
+            <article class="skill-card glass-panel reveal" data-category="tools">
+              <div class="skill-card-head">
+                <h3>Tools</h3>
+                <span>Productive workflows</span>
+              </div>
+              <div class="skill-chip-row">
                 <span class="chip">Git</span>
                 <span class="chip">Docker</span>
+                <span class="chip">VS Code</span>
+                <span class="chip">Postman</span>
               </div>
-            </div>
+              <div class="skill-progress">
+                <div class="skill-progress-row"><span>Git</span><div class="bar"><span class="bar-fill" data-progress="90"></span></div></div>
+                <div class="skill-progress-row"><span>Docker</span><div class="bar"><span class="bar-fill" data-progress="74"></span></div></div>
+                <div class="skill-progress-row"><span>Figma</span><div class="bar"><span class="bar-fill" data-progress="76"></span></div></div>
+              </div>
+            </article>
+
+            <article class="skill-card glass-panel reveal" data-category="ai">
+              <div class="skill-card-head">
+                <h3>AI</h3>
+                <span>Experimental edge</span>
+              </div>
+              <div class="skill-chip-row">
+                <span class="chip">OpenAI API</span>
+                <span class="chip">Cursor</span>
+                <span class="chip">Prompt Design</span>
+                <span class="chip">Automation</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-row"><span>OpenAI API</span><div class="bar"><span class="bar-fill" data-progress="81"></span></div></div>
+                <div class="skill-progress-row"><span>Prompting</span><div class="bar"><span class="bar-fill" data-progress="88"></span></div></div>
+                <div class="skill-progress-row"><span>Automation</span><div class="bar"><span class="bar-fill" data-progress="79"></span></div></div>
+              </div>
+            </article>
           </div>
         </div>
       </section>

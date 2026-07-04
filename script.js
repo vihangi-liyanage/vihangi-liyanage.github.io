@@ -193,10 +193,130 @@ function initParticleCanvas() {
   draw();
 }
 
+function initDynamicCounters() {
+  const projectsCount = document.getElementById('projects-count');
+  const yearsCount = document.getElementById('years-count');
+  const techCount = document.getElementById('tech-count');
+
+  if (!projectsCount || !yearsCount || !techCount) return;
+
+  // Count projects from project cards
+  const projectCards = document.querySelectorAll('[id="projects"] .project-card, .project-card');
+  const totalProjects = Math.max(1, projectCards.length);
+  projectsCount.dataset.target = totalProjects;
+
+  // Count years (fixed value)
+  yearsCount.dataset.target = 3;
+
+  // Count unique core technologies from skill cards
+  const skillChips = document.querySelectorAll('.skill-chip-row .chip');
+  const uniqueTechs = new Set();
+  skillChips.forEach((chip) => {
+    uniqueTechs.add(chip.textContent.trim());
+  });
+  const totalTechs = Math.max(2, uniqueTechs.size);
+  techCount.dataset.target = totalTechs;
+
+  // Trigger counter animation when section comes into view
+  const countersContainer = document.querySelector('.about-animated-cards');
+  if (!countersContainer) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        [projectsCount, yearsCount, techCount].forEach((counter) => {
+          animateCounter(counter);
+        });
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(countersContainer);
+}
+
+function animateCounter(element) {
+  const target = Number(element.dataset.target);
+  const duration = 1200;
+  const start = performance.now();
+
+  const step = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const value = Math.floor(progress * target);
+    element.textContent = `${value}${target > 3 ? '+' : ''}`;
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  };
+
+  requestAnimationFrame(step);
+}
+
 function initBackToTop() {
   window.addEventListener('scroll', () => {
     backToTop?.classList.toggle('is-visible', window.scrollY > 600);
   });
+}
+
+function initSkillFilters() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const skillCards = document.querySelectorAll('.skill-card');
+  const positionCards = document.querySelectorAll('.position-card');
+
+  const applyFilter = (filter) => {
+    filterButtons.forEach((btn) => btn.classList.toggle('active', btn.dataset.filter === filter));
+
+    skillCards.forEach((card) => {
+      const matches = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('is-hidden', !matches);
+    });
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => applyFilter(button.dataset.filter));
+  });
+
+  positionCards.forEach((card) => {
+    card.addEventListener('mousemove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const rotateY = ((x / rect.width) - 0.5) * 8;
+      const rotateX = (0.5 - (y / rect.height)) * 8;
+      card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+
+    card.addEventListener('click', () => {
+      positionCards.forEach((item) => item.classList.remove('active'));
+      card.classList.add('active');
+      applyFilter(card.dataset.skill);
+    });
+  });
+}
+
+function initSkillBars() {
+  const bars = document.querySelectorAll('.bar-fill');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.style.setProperty('--bar-width', `${entry.target.dataset.progress}%`);
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  bars.forEach((bar) => observer.observe(bar));
 }
 
 function initMailtoFallback() {
@@ -217,10 +337,12 @@ function initMailtoFallback() {
       console.warn('Clipboard unavailable', error);
     }
 
-    toast.textContent = 'Email copied — open your mail app to send it.';
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+
+    toast.textContent = 'Opening Gmail with your address ready.';
     toast.classList.add('show');
     window.setTimeout(() => toast.classList.remove('show'), 2200);
-    window.location.href = `mailto:${email}`;
   });
 }
 
@@ -260,9 +382,12 @@ window.addEventListener('load', () => {
   typeLoop();
   initReveal();
   initCounters();
+  initDynamicCounters();
   initNav();
   initParticleCanvas();
   initBackToTop();
+  initSkillFilters();
+  initSkillBars();
   initMailtoFallback();
   initPortraitAnimation();
 });

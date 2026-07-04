@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Vihangi Liyanage — computer science undergraduate and full-stack developer." />
+    <meta name="theme-color" content="#050b18" />
+    <title>Vihangi Liyanage | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="loading-screen" aria-hidden="true">
+      <div class="loading-ring"></div>
+    </div>
+
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+      <nav class="navbar container" aria-label="Primary navigation">
+        <a class="logo" href="#home" aria-label="Go to home section">
+          <span class="logo-mark">&lt;VL /&gt;</span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+          <a class="nav-cta" href="#contact">Hire Me</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section" id="home">
+        <canvas id="particle-canvas" aria-hidden="true"></canvas>
+        <div class="container hero-grid">
+          <div class="hero-content reveal">
+            <p class="eyebrow">Computer Science Undergraduate • Full-Stack Developer</p>
+            <h1>
+              Hi, I’m
+              <span class="gradient-text">M.L. Vihangi Wasana</span>
+            </h1>
+            <div class="typing-block" aria-live="polite">
+              <span id="typing-text"></span>
+              <span class="cursor">|</span>
+            </div>
+            <p class="hero-copy">
+              Building web applications and exploring AI technologies with a strong focus on clean user experiences.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects">View My Work</a>
+              <a class="btn btn-secondary" href="assets/resume.pdf" download>Download CV</a>
+            </div>
+            <div class="social-links" aria-label="Social links">
+              <a href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer" aria-label="GitHub">
+                <span>GH</span>
+              </a>
+              <a href="https://www.linkedin.com/in/vihangi-liyanage" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <span>in</span>
+              </a>
+              <a href="mailto:vwliyanage26@gmail.com" aria-label="Email">
+                <span>@</span>
+              </a>
+              <a href="https://www.instagram.com/vihangi_liyanage/" target="_blank" rel="noreferrer" aria-label="Instagram">
+                <span>IG</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-card glass-panel reveal">
+            <img src="assets/profile.jpg" alt="Portrait of Vihangi Liyanage" />
+            <div class="hero-card-badges">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>Python</span>
+              <span>AI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+          <span>Scroll</span>
+          <div class="arrow"></div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">About Me</p>
+            <h2>Crafting thoughtful digital experiences.</h2>
+            <p>
+              I’m a computer science student with a passion for building modern web applications, experimenting with AI, and turning ideas into polished products.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-card glass-panel reveal">
+              <img src="assets/profile.jpg" alt="Vihangi portrait" />
+              <div class="chip-row">
+                <span class="chip">Creative</span>
+                <span class="chip">Analytical</span>
+                <span class="chip">Team Player</span>
+              </div>
+            </div>
+
+            <div class="about-copy glass-panel reveal">
+              <h3>What drives me</h3>
+              <p>
+                I enjoy combining strong design with reliable engineering to create solutions that feel effortless for users and maintainable for teams.
+              </p>
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <strong data-target="5">0</strong>
+                  <span>Projects Built</span>
+                </div>
+                <div class="stat-card">
+                  <strong data-target="3">0</strong>
+                  <span>Years Learning</span>
+                </div>
+                <div class="stat-card">
+                  <strong data-target="1">0</strong>
+                  <span>Dean’s List</span>
+                </div>
+                <div class="stat-card">
+                  <strong data-target="2">0</strong>
+                  <span>Certifications</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Skills</p>
+            <h2>Core tools and technologies.</h2>
+            <p>Front-end, back-end, databases, and AI-focused development are all part of the toolkit.</p>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-card glass-panel reveal">
+              <h3>Frontend</h3>
+              <div class="chip-row">
+                <span class="chip">React</span>
+                <span class="chip">Next.js</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">HTML5</span>
+                <span class="chip">CSS3</span>
+              </div>
+            </div>
+            <div class="skill-card glass-panel reveal">
+              <h3>Backend</h3>
+              <div class="chip-row">
+                <span class="chip">Node.js</span>
+                <span class="chip">Express</span>
+                <span class="chip">Python</span>
+                <span class="chip">PHP</span>
+              </div>
+            </div>
+            <div class="skill-card glass-panel reveal">
+              <h3>Database & Tools</h3>
+              <div class="chip-row">
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">MongoDB</span>
+                <span class="chip">Git</span>
+                <span class="chip">Docker</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Projects</p>
+            <h2>Selected work in progress.</h2>
+            <p>More project cards and live demos will be added in the upcoming phases.</p>
+          </div>
+
+          <div class="project-card glass-panel reveal">
+            <div>
+              <h3>LUMEERUP</h3>
+              <p>AI-powered career platform designed to help users discover opportunities and grow professionally.</p>
+            </div>
+            <div class="project-links">
+              <a class="btn btn-secondary" href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="btn btn-primary" href="#contact">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Education</p>
+            <h2>A steady academic and professional path.</h2>
+            <p>The foundation is being built through university study, certifications, and practical development work.</p>
+          </div>
+
+          <div class="timeline glass-panel reveal">
+            <div class="timeline-item">
+              <strong>BSc (Hons) Computer Science</strong>
+              <span>University of Bedfordshire • Expected Sep 2026</span>
+            </div>
+            <div class="timeline-item">
+              <strong>Higher Diploma in IT</strong>
+              <span>SLIIT City Uni • In Progress</span>
+            </div>
+            <div class="timeline-item">
+              <strong>Foundation Certificate in IT</strong>
+              <span>SLIIT City Uni • Completed</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-grid">
+          <div class="contact-info glass-panel reveal">
+            <p class="eyebrow">Contact Me</p>
+            <h2>Let’s build something meaningful.</h2>
+            <p>Feel free to reach out for collaborations, opportunities, or just to say hello.</p>
+            <ul>
+              <li><a href="mailto:vwliyanage26@gmail.com">vwliyanage26@gmail.com</a></li>
+              <li><a href="tel:+94711595256">071 159 5256</a></li>
+              <li><a href="https://www.linkedin.com/in/vihangi-liyanage" target="_blank" rel="noreferrer">linkedin.com/in/vihangi-liyanage</a></li>
+              <li><a href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer">github.com/vihangi-liyanage</a></li>
+              <li><a href="https://www.instagram.com/vihangi_liyanage/" target="_blank" rel="noreferrer">Instagram</a></li>
+            </ul>
+          </div>
+
+          <div class="contact-card glass-panel reveal">
+            <a class="btn btn-primary btn-block" href="assets/resume.pdf" download>Download My Resume</a>
+            <p class="contact-note">The form experience will be expanded in the next phases.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>Built with ❤️ by Vihangi Liyanage</p>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
+
+    <script src="script.js"></script>
+  </body>
+</html>

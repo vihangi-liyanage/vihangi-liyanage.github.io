@@ -199,6 +199,37 @@ function initBackToTop() {
   });
 }
 
+function initPortraitAnimation() {
+  const portrait = document.getElementById('hero-portrait');
+  if (!portrait) return;
+
+  let frame = 0;
+  let direction = 1;
+  let colorPhase = 0;
+
+  const animate = () => {
+    frame += 0.025;
+    colorPhase += 0.025;
+
+    const rotate = Math.sin(frame) * 2.4;
+    const grayscale = (Math.sin(colorPhase) + 1) / 2;
+    const brightness = 0.78 + (1 - grayscale) * 0.18;
+    const saturation = 0.9 + (1 - grayscale) * 0.16;
+
+    portrait.style.transform = `rotate(${rotate}deg) scale(${0.99 + Math.sin(frame * 0.6) * 0.008})`;
+    portrait.style.filter = `grayscale(${grayscale}) brightness(${brightness}) saturate(${saturation}) contrast(0.97)`;
+
+    if (frame > 3.2 || frame < -0.2) {
+      direction *= -1;
+    }
+
+    frame += direction * 0.002;
+    requestAnimationFrame(animate);
+  };
+
+  requestAnimationFrame(animate);
+}
+
 window.addEventListener('load', () => {
   setTimeout(() => loadingScreen?.classList.add('is-hidden'), 450);
   typeLoop();
@@ -207,4 +238,5 @@ window.addEventListener('load', () => {
   initNav();
   initParticleCanvas();
   initBackToTop();
+  initPortraitAnimation();
 });

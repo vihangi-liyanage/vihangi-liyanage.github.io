@@ -335,6 +335,53 @@ function initSkillFilters() {
   });
 }
 
+function initProjectFilters() {
+  const filterButtons = document.querySelectorAll('.projects-filter .filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  if (!filterButtons.length || !projectCards.length) return;
+
+  const applyFilter = (filter) => {
+    filterButtons.forEach((btn) => btn.classList.toggle('active', btn.dataset.filter === filter));
+
+    projectCards.forEach((card) => {
+      const tags = (card.dataset.tech || '').split(' ');
+      const matches = filter === 'all' || tags.includes(filter);
+      card.classList.toggle('is-hidden', !matches);
+    });
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => applyFilter(button.dataset.filter));
+  });
+}
+
+function initProjectTilt() {
+  const cards = document.querySelectorAll('.project-card');
+  if (!cards.length) return;
+
+  const maxTilt = 6;
+
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const rotateY = ((x / rect.width) - 0.5) * maxTilt * 2;
+      const rotateX = (0.5 - (y / rect.height)) * maxTilt * 2;
+
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      card.style.setProperty('--mx', `${(x / rect.width) * 100}%`);
+      card.style.setProperty('--my', `${(y / rect.height) * 100}%`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
 function initSkillBars() {
   const bars = document.querySelectorAll('.bar-fill');
   const observer = new IntersectionObserver(
@@ -424,6 +471,8 @@ window.addEventListener('load', () => {
   initBackToTop();
   initSkillFilters();
   initSkillBars();
+  initProjectFilters();
+  initProjectTilt();
   initMailtoFallback();
   initPortraitAnimation();
 });

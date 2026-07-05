@@ -314,19 +314,124 @@
         <div class="container">
           <div class="section-heading reveal">
             <p class="eyebrow">Projects</p>
-            <h2>Selected work in progress.</h2>
-            <p>More project cards and live demos will be added in the upcoming phases.</p>
+            <h2>Selected work, built end-to-end.</h2>
+            <p>A mix of AI platforms, real-time systems, and mobile apps — each one solving a real problem.</p>
           </div>
 
-          <div class="project-card glass-panel reveal">
-            <div>
-              <h3>LUMEERUP</h3>
-              <p>AI-powered career platform designed to help users discover opportunities and grow professionally.</p>
-            </div>
-            <div class="project-links">
-              <a class="btn btn-secondary" href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="btn btn-primary" href="#contact">Contact Me</a>
-            </div>
+          <div class="projects-filter reveal">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ai">AI</button>
+            <button class="filter-btn" data-filter="nextjs">Next.js</button>
+            <button class="filter-btn" data-filter="android">Android</button>
+            <button class="filter-btn" data-filter="java">Java</button>
+            <button class="filter-btn" data-filter="php">PHP</button>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card featured glass-panel reveal" data-tech="ai nextjs">
+              <span class="project-badge">⭐ Featured</span>
+              <div class="project-card-shine"></div>
+              <div class="project-card-body">
+                <h3>LUMEERUP</h3>
+                <p class="project-tagline">AI-Powered Career Guidance Platform</p>
+                <p class="project-desc">
+                  Gives personalized career suggestions from a user's skills, interests, education, and resume —
+                  with skill tests, resume upload, and tailored learning plans, backed by a PostgreSQL data layer.
+                </p>
+                <div class="project-tech">
+                  <span class="chip">Next.js</span>
+                  <span class="chip">TypeScript</span>
+                  <span class="chip">PostgreSQL</span>
+                  <span class="chip">Prisma</span>
+                  <span class="chip">OpenAI API</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary" href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="btn btn-primary" href="#contact">Live Demo</a>
+              </div>
+            </article>
+
+            <article class="project-card glass-panel reveal" data-tech="nextjs">
+              <div class="project-card-shine"></div>
+              <div class="project-card-body">
+                <h3>Ammehula Smart Dining</h3>
+                <p class="project-tagline">Real-Time Restaurant Operations</p>
+                <p class="project-desc">
+                  A Kitchen Display System with live order routing, a Kanban-style tracker across prep, cook, and
+                  delivery stages, plus quality-control reporting for kitchen efficiency.
+                </p>
+                <div class="project-tech">
+                  <span class="chip">Next.js</span>
+                  <span class="chip">Node.js</span>
+                  <span class="chip">Socket.io</span>
+                  <span class="chip">Docker</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary" href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </article>
+
+            <article class="project-card glass-panel reveal" data-tech="php">
+              <div class="project-card-shine"></div>
+              <div class="project-card-body">
+                <h3>Petpalz</h3>
+                <p class="project-tagline">E-Commerce for Pet Accessories</p>
+                <p class="project-desc">
+                  Product listings and categories with an admin panel for managing inventory, wrapped in a simple,
+                  user-friendly shopping interface.
+                </p>
+                <div class="project-tech">
+                  <span class="chip">PHP</span>
+                  <span class="chip">MySQL</span>
+                  <span class="chip">JavaScript</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary" href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </article>
+
+            <article class="project-card glass-panel reveal" data-tech="java">
+              <div class="project-card-shine"></div>
+              <div class="project-card-body">
+                <h3>ShipMate</h3>
+                <p class="project-tagline">Offline Logistics Management</p>
+                <p class="project-desc">
+                  Tracks shipments and drivers with reliable offline data handling and local database sync, built
+                  with a clean, maintainable OOP structure.
+                </p>
+                <div class="project-tech">
+                  <span class="chip">Java</span>
+                  <span class="chip">SQLite</span>
+                  <span class="chip">OOP</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary" href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </article>
+
+            <article class="project-card glass-panel reveal" data-tech="android java">
+              <div class="project-card-shine"></div>
+              <div class="project-card-body">
+                <h3>Readify &amp; FilmFolio</h3>
+                <p class="project-tagline">Android Discovery Apps</p>
+                <p class="project-desc">
+                  Readify syncs book discovery data in real time via Firebase; FilmFolio browses media with a
+                  modern UI and local storage support.
+                </p>
+                <div class="project-tech">
+                  <span class="chip">Java/Kotlin</span>
+                  <span class="chip">Firebase</span>
+                  <span class="chip">XML</span>
+                </div>
+              </div>
+              <div class="project-links">
+                <a class="btn btn-secondary" href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </article>
           </div>
         </div>
       </section>

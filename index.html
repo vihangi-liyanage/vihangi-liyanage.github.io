@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="assets/favicon.svg" />
     <style>
         /* ============================================================
            ROOT & RESET
@@ -1456,6 +1458,100 @@
             font-size: 0.9rem;
         }
 
+        /* ── Contact Form ── */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            width: 100%;
+        }
+        .form-group {
+            position: relative;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 0.9rem;
+            padding: 1.1rem 1rem 0.4rem;
+            font-size: 0.95rem;
+            font-family: var(--font);
+            color: var(--text);
+            outline: none;
+            transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+            resize: none;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .form-group input.is-error,
+        .form-group textarea.is-error {
+            border-color: rgba(239, 68, 68, 0.6);
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: 0.9rem;
+            pointer-events: none;
+            transition: top 200ms ease, font-size 200ms ease, color 200ms ease, transform 200ms ease;
+            background: transparent;
+        }
+        .form-group textarea ~ label {
+            top: 1rem;
+            transform: none;
+        }
+        .form-group input:focus ~ label,
+        .form-group input:not(:placeholder-shown) ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group textarea:not(:placeholder-shown) ~ label {
+            top: 0.35rem;
+            font-size: 0.72rem;
+            color: var(--accent-2);
+            transform: none;
+        }
+        .form-error-msg {
+            color: #f87171;
+            font-size: 0.78rem;
+            margin-top: 0.25rem;
+            padding-left: 0.2rem;
+            display: none;
+        }
+        .form-group.has-error .form-error-msg {
+            display: block;
+        }
+        .form-success {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .form-success.show {
+            display: flex;
+        }
+        .form-success .success-icon {
+            font-size: 2.4rem;
+        }
+        .form-success h4 {
+            font-family: var(--display);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        .form-success p {
+            color: var(--muted);
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
         /* ============================================================
            FOOTER
            ============================================================ */
@@ -2222,25 +2318,66 @@
 
         <!-- ===== CONTACT ===== -->
         <section class="section" id="contact">
-            <div class="container contact-grid">
-                <div class="contact-info glass-panel reveal">
+            <div class="container">
+                <div class="section-heading reveal">
                     <p class="eyebrow">Contact Me</p>
                     <h2>Let's build something meaningful.</h2>
                     <p>Feel free to reach out for collaborations, opportunities, or just to say hello.</p>
-                    <ul>
-                        <li><a href="mailto:vwliyanage26@gmail.com">✉️ vwliyanage26@gmail.com</a></li>
-                        <li><a href="tel:+94711595256">📞 071 159 5256</a></li>
-                        <li><a href="https://www.linkedin.com/in/vihangi-liyanage" target="_blank" rel="noreferrer">🔗 linkedin.com/in/vihangi-liyanage</a></li>
-                        <li><a href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer">🐙 github.com/vihangi-liyanage</a></li>
-                        <li><a href="https://www.instagram.com/vihangi_liyanage/" target="_blank" rel="noreferrer">📷 Instagram</a></li>
-                    </ul>
                 </div>
-                <div class="contact-card glass-panel reveal">
-                    <h3 style="font-family:var(--display);font-size:1.2rem;margin:0;">🌟 Open to Opportunities</h3>
-                    <p style="color:var(--muted);line-height:1.7;">I'm available for internships, freelance work, and full-time roles. Let's connect and discuss how I can contribute to your team.</p>
-                    <a class="btn btn-primary btn-block" href="mailto:vwliyanage26@gmail.com">📧 Send me an email</a>
-                    <a class="btn btn-secondary btn-block" href="https://www.linkedin.com/in/vihangi-liyanage" target="_blank" rel="noreferrer">🔗 Connect on LinkedIn</a>
-                    <p style="color:var(--muted);font-size:0.85rem;margin-top:0.5rem;">📍 On-site • Hybrid • Remote</p>
+                <div class="contact-grid">
+                    <div class="contact-info glass-panel reveal">
+                        <h3 style="font-family:var(--display);font-size:1.15rem;margin:0 0 0.8rem;">📬 Get In Touch</h3>
+                        <ul>
+                            <li><a href="mailto:vwliyanage26@gmail.com">✉️ vwliyanage26@gmail.com</a></li>
+                            <li><a href="tel:+94711595256">📞 071 159 5256</a></li>
+                            <li><a href="https://www.linkedin.com/in/vihangi-liyanage" target="_blank" rel="noreferrer">🔗 linkedin.com/in/vihangi-liyanage</a></li>
+                            <li><a href="https://github.com/vihangi-liyanage" target="_blank" rel="noreferrer">🐙 github.com/vihangi-liyanage</a></li>
+                            <li><a href="https://www.instagram.com/vihangi_liyanage/" target="_blank" rel="noreferrer">📷 @vihangi_liyanage</a></li>
+                        </ul>
+
+                        <div style="margin-top:1.2rem;">
+                            <h3 style="font-family:var(--display);font-size:1rem;margin:0 0 0.5rem;">🌟 Open to Opportunities</h3>
+                            <p style="color:var(--muted);font-size:0.88rem;line-height:1.6;margin:0 0 0.8rem;">I'm available for internships, freelance work, and full-time roles.</p>
+                            <p style="color:var(--muted);font-size:0.85rem;margin:0;">📍 On-site • Hybrid • Remote</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card glass-panel reveal">
+                        <div id="contactFormWrap" style="width:100%;">
+                            <h3 style="font-family:var(--display);font-size:1.1rem;margin:0 0 1rem;">✉️ Send a Message</h3>
+                            <form id="contactForm" class="contact-form" novalidate>
+                                <div class="form-group" id="fgName">
+                                    <input type="text" id="contactName" name="name" placeholder=" " autocomplete="name" />
+                                    <label for="contactName">Your Name</label>
+                                    <span class="form-error-msg" id="errName">Please enter your name.</span>
+                                </div>
+                                <div class="form-group" id="fgEmail">
+                                    <input type="email" id="contactEmail" name="email" placeholder=" " autocomplete="email" />
+                                    <label for="contactEmail">Email Address</label>
+                                    <span class="form-error-msg" id="errEmail">Please enter a valid email.</span>
+                                </div>
+                                <div class="form-group" id="fgSubject">
+                                    <input type="text" id="contactSubject" name="subject" placeholder=" " />
+                                    <label for="contactSubject">Subject</label>
+                                    <span class="form-error-msg" id="errSubject">Please enter a subject.</span>
+                                </div>
+                                <div class="form-group" id="fgMessage">
+                                    <textarea id="contactMessage" name="message" rows="4" placeholder=" "></textarea>
+                                    <label for="contactMessage">Your Message</label>
+                                    <span class="form-error-msg" id="errMessage">Please enter a message.</span>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block" id="contactSubmitBtn">
+                                    📧 Send Message
+                                </button>
+                            </form>
+                            <div class="form-success" id="formSuccess">
+                                <div class="success-icon">🎉</div>
+                                <h4>Message Sent!</h4>
+                                <p>Thanks for reaching out. I'll get back to you as soon as possible.</p>
+                                <button class="btn btn-secondary" id="formResetBtn">Send Another</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2358,6 +2495,9 @@
             // ─── Back to top ────────────────────────────────────────────
             window.addEventListener('scroll', () => {
                 backToTop?.classList.toggle('is-visible', window.scrollY > 500);
+            });
+            backToTop?.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
             // ─── Reveal on scroll ──────────────────────────────────────
@@ -2525,16 +2665,17 @@
             if (closeResumeToast) closeResumeToast.addEventListener('click', closeResumeModal);
             if (resumeOverlay) resumeOverlay.addEventListener('click', closeResumeModal);
 
-            // Download resume
+            // Download resume — uses real PDF from assets/
             if (downloadResumeBtn) {
                 downloadResumeBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    // Create a simple resume download simulation
                     const link = document.createElement('a');
                     link.download = 'Vihangi_Liyanage_Resume.pdf';
-                    link.href = 'data:application/pdf;base64,JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL1R5cGUgL1BhZ2VzCi9LaWRzIFszIDAgUl0KL0NvdW50IDEKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL1R5cGUgL1BhZ2UKL01lZGlhQm94IFswIDAgNjEyIDc5Ml0KL1BhcmVudCAyIDAgUgovUmVzb3VyY2VzIDw8Ci9Gb250IDw8Ci9GMSA0IDAgUgo+Pgo+PgovQ29udGVudHMgNSAwIFIKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL1R5cGUgL0ZvbnQKL1N1YnR5cGUgL1R5cGUxCi9CYXNlRm9udCAvSGVsdmV0aWNhCj4+CmVuZG9iago1IDAgb2JqCjw8IC9MZW5ndGggMTY4ID4+CnN0cmVhbQpCVFgKMSBUZgooVGhpcyBpcyBhIHBsYWNlaG9sZGVyIHJlc3VtZS4gUGxlYXNlIHVwbG9hZCB5b3VyIGFjdHVhbCByZXN1bWUgcGRmIHRvIHRoZSBhc3NldHMgZm9sZGVyLgpUaGlzIGlzIGEgc2ltcGxlIGRlbW9uc3RyYXRpb24gb2YgdGhlIGRvd25sb2FkIGZ1bmN0aW9uYWxpdHkuCkVuZG9mCg==';
+                    link.href = 'assets/resume.pdf';
+                    document.body.appendChild(link);
                     link.click();
-                    toast.textContent = 'Resume download started!';
+                    document.body.removeChild(link);
+                    toast.textContent = '✅ Resume download started!';
                     toast.classList.add('show');
                     setTimeout(() => toast.classList.remove('show'), 2500);
                     closeResumeModal();
@@ -2591,6 +2732,75 @@
                     } else if (e.key === 'ArrowRight') {
                         trainNext.click();
                     }
+                });
+            }
+
+            // ─── Contact Form Validation ───────────────────────────────
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            const formResetBtn = document.getElementById('formResetBtn');
+
+            function validateField(inputId, groupId, errId, validatorFn) {
+                const input = document.getElementById(inputId);
+                const group = document.getElementById(groupId);
+                const err = document.getElementById(errId);
+                if (!input) return true;
+                const isValid = validatorFn(input.value.trim());
+                group.classList.toggle('has-error', !isValid);
+                input.classList.toggle('is-error', !isValid);
+                return isValid;
+            }
+
+            if (contactForm) {
+                // Live validation on blur
+                document.getElementById('contactName')?.addEventListener('blur', () => {
+                    validateField('contactName', 'fgName', 'errName', v => v.length >= 2);
+                });
+                document.getElementById('contactEmail')?.addEventListener('blur', () => {
+                    validateField('contactEmail', 'fgEmail', 'errEmail', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+                });
+                document.getElementById('contactSubject')?.addEventListener('blur', () => {
+                    validateField('contactSubject', 'fgSubject', 'errSubject', v => v.length >= 2);
+                });
+                document.getElementById('contactMessage')?.addEventListener('blur', () => {
+                    validateField('contactMessage', 'fgMessage', 'errMessage', v => v.length >= 10);
+                });
+
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const n = validateField('contactName',    'fgName',    'errName',    v => v.length >= 2);
+                    const em = validateField('contactEmail',  'fgEmail',   'errEmail',   v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+                    const s = validateField('contactSubject', 'fgSubject', 'errSubject', v => v.length >= 2);
+                    const m = validateField('contactMessage', 'fgMessage', 'errMessage', v => v.length >= 10);
+
+                    if (!n || !em || !s || !m) return;
+
+                    // Open Gmail with pre-filled message
+                    const name    = document.getElementById('contactName').value.trim();
+                    const email   = document.getElementById('contactEmail').value.trim();
+                    const subject = document.getElementById('contactSubject').value.trim();
+                    const message = document.getElementById('contactMessage').value.trim();
+                    const body = `From: ${name} <${email}>\n\n${message}`;
+                    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=vwliyanage26@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+
+                    contactForm.style.display = 'none';
+                    formSuccess.classList.add('show');
+                });
+            }
+
+            if (formResetBtn) {
+                formResetBtn.addEventListener('click', () => {
+                    const contactForm = document.getElementById('contactForm');
+                    const formSuccess = document.getElementById('formSuccess');
+                    if (contactForm) {
+                        contactForm.reset();
+                        contactForm.style.display = '';
+                        // Clear error states
+                        contactForm.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
+                        contactForm.querySelectorAll('input,textarea').forEach(i => i.classList.remove('is-error'));
+                    }
+                    formSuccess.classList.remove('show');
                 });
             }
 

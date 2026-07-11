@@ -41,6 +41,7 @@ Success state — after valid submit, form hides and a 🎉 success message appe
 Gmail integration — on submit, opens Gmail compose with pre-filled To/Subject/Body
 
 Phase Completion Checklist
+
 Phase	Status
 Phase 1: Foundation + Hero	✅ Complete
 Phase 2: About Me + Skills	✅ Complete

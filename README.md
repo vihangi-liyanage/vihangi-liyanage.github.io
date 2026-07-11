@@ -24,6 +24,7 @@ Skills category filtering (All, Frontend, Backend, Database, Tools, AI) is fully
 
 Portfolio Audit & Fix Walkthrough
 Live Site: vihangi-liyanage.github.io
+
 Bugs Fixed
 #	Issue	Fix Applied
 1	Favicon not linked — assets/favicon.svg existed but wasn't referenced	Added <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" /> to <head>
@@ -38,6 +39,7 @@ Full submit validation — all fields checked on submit; errors shown in red
 Success state — after valid submit, form hides and a 🎉 success message appears
 "Send Another" reset — resets form back to empty with error states cleared
 Gmail integration — on submit, opens Gmail compose with pre-filled To/Subject/Body
+
 Phase Completion Checklist
 Phase	Status
 Phase 1: Foundation + Hero	✅ Complete
